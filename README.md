@@ -1,4 +1,8 @@
 # Doctor Appointment Assistant
+![Alt text](https://github.com/varunseth578/smart-doctor/blob/1252b5bd22515aba808d7527c00b8d5feb934934/Screenshot%202026-02-15%20212947.png)
+![Alt text](https://github.com/varunseth578/smart-doctor/blob/1252b5bd22515aba808d7527c00b8d5feb934934/Screenshot%202026-02-15%20213011.png)
+![Alt text](https://github.com/varunseth578/smart-doctor/blob/1252b5bd22515aba808d7527c00b8d5feb934934/Screenshot%202026-02-15%20213032.png)
+
 
 An AI-powered Doctor Appointment Assistant that allows users to check doctor availability, book appointments, create Google Calendar events, and send confirmation emails automatically.
 
@@ -129,3 +133,4 @@ Google Calendar API
 Gmail API
 OpenRouter API
 Python
+
