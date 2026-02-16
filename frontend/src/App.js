@@ -14,7 +14,7 @@ function App() {
 
     const userMessage = message;
 
-    setMessage("");       // ✅ Clear input box immediately
+    setMessage("");       
     setLoading(true);
     setResponse("");
 
