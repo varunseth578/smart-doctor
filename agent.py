@@ -21,7 +21,7 @@ def validate_and_convert_date(date_str):
       
         date_obj = datetime.strptime(date_str, "%d-%m-%Y")
 
-        # Convert to YYYY-MM-DD for database
+        
         return date_obj.strftime("%Y-%m-%d")
 
     except ValueError:
@@ -29,9 +29,6 @@ def validate_and_convert_date(date_str):
         return None
 
 
-# -----------------------------
-# CHECK AVAILABILITY
-# -----------------------------
 def check_availability(doctor_name=None, appointment_date=None, appointment_time=None):
 
     if not doctor_name:
@@ -52,9 +49,6 @@ def check_availability(doctor_name=None, appointment_date=None, appointment_time
     }
 
 
-# -----------------------------
-# BOOK APPOINTMENT
-# -----------------------------
 def book_appointment(
     doctor_name=None,
     patient_name=None,
@@ -62,7 +56,7 @@ def book_appointment(
     appointment_time=None
 ):
 
-    # VALIDATION
+    
     if not doctor_name:
         return {"status": "missing", "message": "Please provide doctor name."}
 
@@ -76,7 +70,7 @@ def book_appointment(
         return {"status": "missing", "message": "Please provide appointment time."}
 
 
-    # Validate and convert date
+    
     db_date = validate_and_convert_date(appointment_date)
 
     if not db_date:
@@ -90,7 +84,7 @@ def book_appointment(
 
     try:
 
-        # Save to database
+        
         new_appointment = Appointment(
             doctor_name=doctor_name,
             patient_name=patient_name,
@@ -105,7 +99,7 @@ def book_appointment(
         print("✅ Appointment saved in database")
 
 
-        # Create Calendar Event
+        
         calendar_link = None
 
         try:
@@ -123,8 +117,7 @@ def book_appointment(
 
             print("❌ Calendar error:", cal_error)
 
-
-        # Send Email
+    
         try:
 
             subject = "Appointment Confirmation"
@@ -191,9 +184,6 @@ Confirmation email sent successfully.
         db.close()
 
 
-# -----------------------------
-# TOOLS LIST
-# -----------------------------
 tools_list = [
 
     {
@@ -232,9 +222,6 @@ tools_list = [
 ]
 
 
-# -----------------------------
-# RUN AGENT
-# -----------------------------
 def run_agent(messages, session_info):
 
     system_prompt = {
