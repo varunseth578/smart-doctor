@@ -7,7 +7,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 
-# IMPORTANT: include gmail.send
+
 SCOPES = [
     "https://www.googleapis.com/auth/calendar",
     "https://www.googleapis.com/auth/gmail.send"
@@ -18,11 +18,11 @@ def send_email(to_email, subject, message_text):
 
     creds = None
 
-    # Load token if exists
+    
     if os.path.exists("token.json"):
         creds = Credentials.from_authorized_user_file("token.json", SCOPES)
 
-    # If no valid token → login again
+    
     if not creds or not creds.valid:
 
         if creds and creds.expired and creds.refresh_token:
@@ -36,11 +36,11 @@ def send_email(to_email, subject, message_text):
 
             creds = flow.run_local_server(port=0)
 
-        # Save new token
+        
         with open("token.json", "w") as token:
             token.write(creds.to_json())
 
-    # Build Gmail service
+    
     service = build("gmail", "v1", credentials=creds)
 
     message = MIMEText(message_text)
@@ -56,7 +56,7 @@ def send_email(to_email, subject, message_text):
         "raw": raw_message
     }
 
-    # Send email
+    
     service.users().messages().send(
         userId="me",
         body=body
