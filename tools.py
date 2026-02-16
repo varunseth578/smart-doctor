@@ -44,7 +44,7 @@ def book_appointment(doctor_name, patient_name, appointment_date, appointment_ti
     db.commit()
     db.close()
 
-    # ✅ Create Google Calendar event
+    
     calendar_link = create_calendar_event(
         doctor_name,
         patient_name,
@@ -52,7 +52,7 @@ def book_appointment(doctor_name, patient_name, appointment_date, appointment_ti
         appointment_time
     )
 
-    # ✅ SEND EMAIL HERE
+    
     subject = "Appointment Confirmation"
 
     message = f"""
